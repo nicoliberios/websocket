@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prueba Socket.IO</title>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <!-- Incluir Socket.IO -->
+  </head>
+  <body>
+    <h1>Prueba de WebSocket con Socket.IO</h1>
+    <p id="mensaje">Esperando mensaje...</p>
+
+    <script>
+      // Crear la conexión con el servidor Socket.IO
+      var socket = io("http://localhost:3000");
+
+      // Escuchar el mensaje enviado por el servidor
+      socket.on("message", function (data) {
+        document.getElementById("mensaje").innerText = data;
+      });
+    </script>
+  </body>
+</html>
